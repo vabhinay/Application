@@ -1,0 +1,41 @@
+@import 'variable';
+@import 'font';
+.user-data {
+    padding: 5px;
+    .card {
+        width: 25%;
+        float: left;
+        margin: 15px;
+        border: 1px solid $primary-color_1;
+        border-radius: 3px;
+        box-shadow: 4px 6px 5px $shadow-color;
+        .header {
+            background: $primary-color;
+            padding: 15px;
+            h3 {
+                padding: 0px;
+                margin: 0px;
+                color: $font-color;
+                font-style: italic;
+            }
+        }
+        .content {
+            height: 150px;
+            padding: 2% 0%;
+            .description {
+                clear: both;
+                label {
+                    width: 45%;
+                    float: left;
+                    padding: 1% 2% 2% 3%;
+                    &.name {
+                        color: $secondary-color;
+                    }
+                    &.value {
+                        color: $primary-color_2;
+                    }
+                }
+            }
+        }
+    }
+}
