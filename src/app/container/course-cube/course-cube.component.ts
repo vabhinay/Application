@@ -14,8 +14,11 @@ export class CourseCubeComponent implements OnInit {
   constructor(public courseCubeService:CourseCubeService) { }
 
   ngOnInit() {
-    this.getCourseCube();
+    this.courseCubeService.getCourseCubeList().subscribe((courseCubeResponse: Array<CourseCube>) => {
+      this.courseCubeList = courseCubeResponse ? courseCubeResponse : [];
+    });
   }
+
 
   addCourse(){
     
@@ -28,21 +31,5 @@ export class CourseCubeComponent implements OnInit {
       console.log(courseCubeResponse);
     });
   }
-
-  getCourseCube(){
-    this.courseCubeService.getCourseCube().subscribe(
-      //Success
-      (courseCubeResponse: Array<CourseCube>) => {
-        this.courseCubeList = courseCubeResponse ? courseCubeResponse["courseCube"] :[];
-        this.courseCubeService.setCourseCubeList(this.courseCubeList);
-      },
-      // error
-      (error) => {
-        console.log(error);
-      },
-      // finally
-      ()=>{
-        console.log('finally');
-      });
-  }
 }
+  
