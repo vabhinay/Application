@@ -9,6 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ContainerComponent } from './container/container.component';
 import { CourseCubeComponent } from './container/course-cube/course-cube.component';
 import { LeftNavComponent } from './container/left-nav/left-nav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CourseCubeService } from './service/course-cube.service';
+import { CardComponent } from './container/course-cube/card/card.component';
 
 const appRoute: Routes=[
 {
@@ -33,14 +36,16 @@ const appRoute: Routes=[
     ContainerComponent,
     CourseCubeComponent,
     LeftNavComponent,
+    CardComponent
     
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [CourseCubeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
